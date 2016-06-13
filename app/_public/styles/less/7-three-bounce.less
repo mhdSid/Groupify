@@ -1,0 +1,44 @@
+.sd-spinner-three-bounce.sk-spinner {
+    left: 57%;
+    width: 70px !important;
+    height: 23px !important;
+    position: relative;
+    top: 40%;
+    transform: translateY(-40%);
+}
+.sk-spinner-three-bounce.sk-spinner {
+    margin: 0 auto;
+    text-align: center;
+}
+.sk-spinner-three-bounce div, .sd-spinner-three-bounce div {
+    height: 15px;
+    width: 15px;
+    background-color: #BCBEC0;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-threeBounceDelay 1.4s infinite ease-in-out;
+    animation: sk-threeBounceDelay 1.4s infinite ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.sk-spinner-three-bounce .sk-bounce1, .sd-spinner-three-bounce .sk-bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+.sk-spinner-three-bounce .sk-bounce2, .sd-spinner-three-bounce .sk-bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@keyframes sk-threeBounceDelay{
+          0%, 80%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+
+  40% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } 
+}
+
+
+
