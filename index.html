@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Groupify</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- <base href="/"> -->
+    <!-- build:css /lib.css-->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css /app/main.css-->
+    
+    <!-- inject:css -->   
+    <link rel="stylesheet" href="/development/_public/styles/main.css">   
+    <!-- endinject -->
+
+    <!-- endbuild -->
+
+</head>
+<body dir="ltr">
+
+    <div class="big-boy row col-xs-12">
+
+        <!-- Sidebar -->
+        <div class="sidebar rapper">   <!--col-xs-3 col-lg-2-->
+
+            <div class="part groupify">
+                <a class="nav-app">Dashboard</a>
+            </div>
+            
+            <section>
+                <div class="header">
+                    <a class="nav-group">Groups</a>
+                    <a class="group-adder adder">+</a>
+                </div>
+
+                <span class="sidebar-groups-template"></span>
+            </section>
+
+            <script type="text/template" id="sidebar-groups-template">
+                <% if (sidebarGroups) { %>
+                    <div class="part groups">
+                        <div class="group-list list">
+                            <% _.each(sidebarGroups, function(group) { %> 
+                                <a class="display-group"><%= group %></a>
+                            <% }); %>
+                        </div>
+                    </div> 
+                <% } %>
+            </script>
+            
+            <section>
+                <div class="header">
+                    <a class="nav-user">Users</a>
+                    <a class="user-adder adder">+</a>
+                </div>
+                
+                <span class="sidebar-users-template"></span>
+            </section>
+
+            <script type="text/template" id="sidebar-users-template">
+                <% if (sidebarUsers) { %>
+                    <div class="part users row">
+                         <div class="user-list list">
+                            <% _.each(sidebarUsers, function(user) { %> 
+                                <a class="display-user" id='<%=user.name %>' title="<%=user.name %>"><div style="background-color: <%=user.color %>"></div></a>
+                            <% }); %>
+                        </div>
+                    </div> 
+                <% } %>
+            </script>
+
+            <footer>
+                With &#9829; by <a href="http://www.github.com/mhdSid">Moe Sidani</a>
+            </footer>
+        </div>
+        <!-- End Sidebar -->
+        
+        <nav class="nav-search">
+            <div>
+                <input type="text" name="user-search" placeholder="Search">
+            </div>
+        </nav>
+
+        <!-- Load view -->
+        <div class="compiled-view"> <!--col-xs-9 col-lg-10-->
+            <div id="main-page" class="pages">
+                <div>Welcome to Groupify!</div>
+                <div>With Groupify you can <a class="group-adder">create groups</a> and <a class="user-adder">create users</a></div>
+            </div>
+
+            <div id="user-page" class="pages">
+                <div class="row inner-nav user-nav-section col-xs-12">
+                    
+                    <span id="user-groups-list"></span>
+                    
+                    <script type="text/template" id="user-groups-list-template">
+                        <% if (groups.length > 0) { %>
+                            <div class="user-add-group choices-wrapper">
+                                Add to Group
+                                <ul class="user-group-choices choices">
+                                    <% _.each(groups, function(group) { %> 
+                                        <li class="add-group-to-user"><%= group %></li>
+                                    <% }); %>
+                                </ul>
+                            </div>
+                        <% } %>
+                    </script>
+
+                    <div class="user-delete">Delete</div>
+                </div>
+                
+                <span id="user-belongs-list"></span>
+                
+                <script type="text/template" id="user-belongs-list-template">
+                    
+                    <div class="user-belongs-list">
+                        <h3>Welcome <%=uname %> :)</h3>
+                        <% if (groups.length > 0) { %>
+                            <% _.each(groups, function(group) { %> 
+                                <% if (group !== null) { %>
+                                    <div class="user-belongs-listing row middle-xs">
+                                        <span class="col-xs-3">Belongs to</span>
+                                        <span class="col-xs-7 user-belongs-listing-name"><%= group %></span>
+                                        <span class="nt-belong">X</span>
+                                    </div>
+                                <% } %>
+                            <% }); %>
+                        </div>
+                    <% } %>
+                </script>
+
+            </div>
+
+
+            <div id="search-page" class="pages">
+                <div class="row inner-nav user-nav-section col-xs-12">
+                </div>
+                
+                <span id="search-list"></span>
+                
+                <script type="text/template" id="search-list-template">
+                    <% if (data.length > 0) { %>
+                        <div class="search-list-items">
+                            <% _.each(data, function(data) { %> 
+                                <div class="search-list-items-listing row middle-xs">
+                                    <span class="col-xs-3"><%= data.type %></span>
+                                    <span class="col-xs-7"><%= data.name %></span>
+                                </div>
+                            <% }); %>
+                        </div>
+                    <% } %>
+                </script>
+
+            </div>
+
+            <div id="group-page" class="pages">
+                <div class="row inner-nav group-nav-section col-xs-12">
+                
+                    <span id="group-users-list-choices"></span>
+                    
+                     <script type="text/template" id="group-users-list-choices-template">
+                        <% if (availableUsers.length > 0) { %>
+                            <div class="group-add-users choices-wrapper">
+                                Add User
+                                <ul class="group-user-choices choices">
+                                    <% _.each(availableUsers, function(user) { %> 
+                                        <li class="add-user-to-group"><%= user %></li>
+                                    <% }); %>
+                                </ul>
+                            </div>
+                        <% } %>
+                    </script>
+
+                    <div class="group-delete">Delete</div>
+                </div>
+                
+                <span id="group-current-members"></span>
+
+                <script type="text/template" id="group-current-members-template">
+                    <div class="group-members-list">
+                        <h3>Welcome to <%=gname %></h3>
+                        <% if (users.length > 0) { %>
+                            <% _.each(users, function(user) { %> 
+                                <% if (user !== null) { %>
+                                    <div class="group-members-listing row middle-xs">
+                                        <a class="display-user" id="1"><div style="background-color: <%=user.color %>"></div></a>
+                                        <span class="col-xs-5 group-listing-name"><%=user.name %></span>
+                                        <span class="col-xs-5 group-listing-email"><%=user.email %></span>
+                                        <span class="remove-member">X</span>
+                                    </div>
+                                <% } %>
+                            <% }); %>
+                        <% } %>
+                    </div>
+                </script>
+
+            </div>
+            
+            <!-- Add User View -->
+            <div id="adduser-page" class="pages">
+                <div class="header">
+                    <div class="header-tag">Create New User</div>
+                    <!-- <input class="input-file" type="file"></input> -->
+                    <!-- <button class="user-img-btn"></button> -->
+                </div>
+                <div class="add-info-inner">
+                    <input type="text" name="user-name" placeholder="user name ...">
+           
+                    <input type="text" name="user-email" placeholder="user e-mail ...">
+
+                    <span id="all-groups-template"></span>
+                    
+                    <script type="text/template" id="member-groups-template">
+                        <% if (groups) { %>
+                            <div class="user-groups choices-wrapper">
+                                <input type="text" name="user-groups" disabled="true" placeholder="groups ...">
+                                <% if (groups.length) { %>
+                                    <ul class="user-group-choices choices">
+                                       <% _.each(groups, function(group) { %> 
+                                            <li><%= group %></li>
+                                        <% }); %>
+                                    </ul>
+                                <% } %>
+                            </div>
+                        <% } %>
+                    </script>
+                </div>
+                <button class="button btn-createUser">Create</button>
+            </div>
+            <!-- End Add User View -->
+
+            <!-- Add Group View -->
+            <div id="addgroup-page" class="pages">
+                <div class="header header-tag">Create New Group</div>
+
+                <div class="add-info-inner">
+               
+                    <input type="text" name="group-name" placeholder="group name ...">
+
+                    <span id="all-users-template"></span>
+
+                    <script type="text/template" id="group-members-template">
+                        <% if (users) { %>
+                            <div class="group-members choices-wrapper">
+                                <input type="text" name="group-members" disabled="true" placeholder="group members ...">
+                                    <% if (users.length) { %>
+                                        <ul class="group-user-choices choices">
+                                            <% _.each(users, function(user) { %> 
+                                                <li class="create-group-add-member"><%= user %></li>
+                                            <% }); %>
+                                        </ul>
+                                    <% } %>
+                            </div>
+                        <% } %>
+                    </script>
+                    
+                </div>
+
+                <button class="button btn-createGroup">Create</button>
+            </div>
+            <!-- End Add Group View -->
+        </div>
+
+    </div>
+
+    <!-- build:js /lib.js-->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/backbone/backbone.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js /app/build.js-->
+    <!-- inject:js -->
+    <script src="/development/app.routes.js"></script>
+    <script src="/development/app.view.js"></script>
+    <script src="/development/updateSection.model.js"></script>
+    <script src="/development/group/addGroup.view.js"></script>
+    <script src="/development/group/allUsers.view.js"></script>
+    <script src="/development/group/group.model.js"></script>
+    <script src="/development/group/group.view.js"></script>
+    <script src="/development/group/group.viewModel.js"></script>
+    <script src="/development/group/groupListingUserChoices.view.js"></script>
+    <script src="/development/group/groupMembers.view.js"></script>
+    <script src="/development/group/groupName.view.js"></script>
+    <script src="/development/search/search.view.js"></script>
+    <script src="/development/search/searchList.view.js"></script>
+    <script src="/development/search/searchModel.js"></script>
+    <script src="/development/sidebar/sidebar.model.js"></script>
+    <script src="/development/sidebar/sidebarGroups.view.js"></script>
+    <script src="/development/sidebar/sidebarUsers.view.js"></script>
+    <script src="/development/user/addUser.view.js"></script>
+    <script src="/development/user/allGroups.view.js"></script>
+    <script src="/development/user/user.model.js"></script>
+    <script src="/development/user/user.view.js"></script>
+    <script src="/development/user/user.viewModel.js"></script>
+    <script src="/development/user/userEmailView.js"></script>
+    <script src="/development/user/userGroups.view.js"></script>
+    <script src="/development/user/userListingGroupChoices.view.js"></script>
+    <script src="/development/user/userName.view.js"></script>
+    <!-- endinject -->
+    <!-- inject:templates:js -->
+    
+    <!-- endinject -->
+    <!-- endbuild -->
+</body>
+</html>
