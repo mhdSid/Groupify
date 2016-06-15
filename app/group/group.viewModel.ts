@@ -1,4 +1,7 @@
 // ((): void => {
+// require([
+// 	'backbone'
+// ], function(Backbone) {
 	let GroupViewModel: any = Backbone.Model.extend({
 
 		defaults: {
@@ -35,4 +38,5 @@
 
 		}
 	});
+//});
 // })();

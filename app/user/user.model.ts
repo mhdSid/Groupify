@@ -1,4 +1,7 @@
 // ((): void => {
+// require([
+//     'backbone'
+// ], function(Backbone) {
 	let User: any = Backbone.Model.extend({
 
 		defaults: {
@@ -78,4 +81,5 @@
 			} catch (e) { }
 		}
 	});
+//});
 // })();

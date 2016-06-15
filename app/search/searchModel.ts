@@ -1,4 +1,7 @@
 // ((): void => {
+// require([
+//     'backbone'
+// ], function(Backbone) {
 	let SearchModel: any = Backbone.Model.extend({
 
 		initialize: function(key) {
@@ -18,6 +21,11 @@
 				}
 				return data;
 			} catch (e) { }
+		},
+		
+		set: function(key) {
+			this.key = key;
 		}
 	});
+//});
 // })();

@@ -1,4 +1,8 @@
 // ((): void => {
+// require([
+// 	'backbone',
+//     'jquery'
+// ], function(Backbone, $) {
 	let GroupNameView: any = Backbone.View.extend({
 
 		el: $('input[name="group-name"]'),
@@ -9,9 +13,10 @@
 
 		render: function() {
 
-	        $(this.el).val('');
+			$(this.el).val('');
 
-	        return this;
+			return this;
 		}
 	});
+//});
 // })();

@@ -1,4 +1,11 @@
 // ((): void => {
+// require([
+//     'backbone',
+//     'jquery',
+//     '/development/user/allGroups.view.js',
+//     '/development/user/userName.view.js',
+//     '/development/user/userEmail.view.js'
+// ], function(Backbone, $, AllGroupsView, UserNameView, UserEmailView) {
 	let oldGroupsView: any;
 	let AddUserView: any = Backbone.View.extend({
 
@@ -9,7 +16,7 @@
 			'change input': 'changed'
 		},
 
-		initialize: function(sidebarUsersView) {
+		initialize: function() { //new SidebarUsersView();
 
 			if (oldGroupsView) {
 				oldGroupsView.cleanup();
@@ -23,7 +30,7 @@
 			this.userNameView.render();
 			this.userEmailView.render();
 
-			this.sidebarUsersView = sidebarUsersView;
+			//this.sidebarUsersView = sidebarUsersView;
 			oldGroupsView = this.allGroupsView;
 		},
 
@@ -104,4 +111,5 @@
 			}, 2000);
 		}
 	});
+//});
 // })();

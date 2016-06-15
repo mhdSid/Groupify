@@ -1,4 +1,9 @@
 // ((): void => {
+// require([
+//     'backbone',
+//     'jquery',
+//     'underscore'
+// ], function(Backbone, $, _) {
 	let SearchList: any = Backbone.View.extend({
 		el: $('#search-list'),
 
@@ -14,9 +19,9 @@
 			$(this.el).append(this.el);
 		},
 
-		initialize: function(key) {
-			this.SearchModel = new SearchModel(key);
-			this.data = this.SearchModel.getData();
+		initialize: function(data) {
+			
+			this.data = data;
 		},
 
 		render: function() {
@@ -29,8 +34,7 @@
 
 		navigate: function(e) {
 			console.log(e);
-			// Backbone.history.navigate("/search", true);
-			// Backbone.history.navigate("/search", true);
 		}
 	});
+//});
 // })();

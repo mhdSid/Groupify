@@ -1,4 +1,10 @@
 // ((): void => {
+// require([
+//     'backbone',
+//     'jquery',
+//     '/development/updateSection.model.js',
+//     'underscore'
+// ], function(Backbone, $, UpdateSection, _) {
 	let GroupChoices: any = Backbone.View.extend({
 		el: $('#user-groups-list'),
 
@@ -50,4 +56,5 @@
 			this.ulist.render(true);
 		}
 	});
+//});
 // })();

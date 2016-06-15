@@ -1,4 +1,11 @@
 // ((): void => {
+
+// require([
+// 	'backbone',
+//     'jquery',
+//     '/development/group/allUsers.view.js',
+//     '/development/group/groupName.view.js'
+// ], function(Backbone, $, AllUsersView, GroupNameView) {
 	let oldUsersView: any;
 	let AddGroupView: any = Backbone.View.extend({
 
@@ -9,7 +16,7 @@
 			'change input': 'changed'
 		},
 
-		initialize: function(sidebarGroupsView) {
+		initialize: function() { //new SidebarUsersView();
 
 			if (oldUsersView) {
 				oldUsersView.cleanup();
@@ -22,7 +29,7 @@
 			this.allUsersView.render();
 			this.groupNameView.render();
 
-			this.sidebarGroupsView = sidebarGroupsView;
+			//this.sidebarGroupsView = sidebarGroupsView;
 
 			oldUsersView = this.allUsersView;
 		},
@@ -92,4 +99,5 @@
 			}, 2000);
 		}
 	});
+//});
 // })();

@@ -1,4 +1,10 @@
 // ((): void => {
+// require([
+// 	'backbone',
+//     'jquery',
+//     'underscore',
+//     '/development/group/group.viewModel.js'
+// ], function(Backbone, $, _, GroupViewModel) {
 	let GroupMembersListing: any = Backbone.View.extend({
 
 		el: $('#group-current-members'),
@@ -31,4 +37,5 @@
 			$(this.el).append(this.el);
 		}
 	});
+//});
 // })();

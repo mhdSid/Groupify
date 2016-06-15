@@ -24,18 +24,19 @@ html, body, .big-boy {
 	min-height: 100%;
 	margin: 0;
 	background-color: #f2f2f2;
-	padding: 130px 50px 50px;
+	padding: 90px 10px 20px 10px;
+	
 	//margin-top: 60px;
 	font-family: "Gill Sans";
 	position: relative;
-
-	width: ~'calc(100% - 250px)';
+	width: 100%;
+	
 
 	.pages {
 		display: none;
 		background-color: #f8f8f8;
 		position: relative;
-		
+		//height: 100%;
 		//border: 1px solid #fd583f;
 
 		.header {
@@ -48,6 +49,7 @@ html, body, .big-boy {
 		    display: inline-block;
 		    text-align: left;
 		    margin-bottom: 60px;
+		    width: 70%;
 
 			.error {
 				border: 1px solid red;
@@ -57,7 +59,8 @@ html, body, .big-boy {
 			    display: block;
 			    border: 1px solid #f0f0f0;
 			    height: 35px;
-			    width: 300px;
+			    width: 100%;
+			    
 			    border-radius: 5px;
 			    padding: 10px;
 			    box-shadow: 2px 2px 20px #febcb2;
@@ -156,9 +159,10 @@ html, body, .big-boy {
 		font-family: Papyrus;
 		height: 215px;
 		background-color: @text-white;
-		margin: 30px;
+		
 		color: @red;
 		text-align: center;
+		margin: 0;
 
 		a {
 			cursor: pointer;
@@ -248,7 +252,7 @@ html, body, .big-boy {
 		.user-belongs-list, .group-members-list, .search-list-items {
 			width: 100%;
 			height: ~"calc(100% - 60px)";
-			padding: 50px;
+			padding: 20px;
 			overflow: scroll;
 
 			h3 {
@@ -291,12 +295,12 @@ html, body, .big-boy {
 
 		.group-members-listing {
 
-		}
-
-		.group-members-listing {
-
 			.group-listing-name, .group-listing-email {
 				text-align: left;
+			}
+
+			.group-listing-email {
+				display: none;
 			}
 
    			.group-listing-name {
@@ -324,3 +328,37 @@ html, body, .big-boy {
 		}
 	}
 }
+
+@media only screen and (min-width: 769px) {
+	.compiled-view {
+		padding: 130px 50px 50px;
+		width: ~'calc(100% - 250px)';
+
+		.pages {
+			//height: 100%; 
+		}
+		.user-belongs-list, .group-members-list, .search-list-items {
+			padding: 50px;
+		}
+		.add-info-inner {
+			width: auto;
+			input {
+				width: 300px;
+			}
+		}
+		#group-page {
+			.group-members-listing {
+
+				.group-listing-email {
+					display: inherit;
+				}
+			}
+		}
+		#main-page {
+			margin: 30px;
+		}
+	}
+
+
+
+	}

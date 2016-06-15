@@ -1,4 +1,7 @@
 // ((): void => {
+// require([
+//     'backbone'
+// ], function(Backbone) {
 	let ApplicationRouter: any = Backbone.Router.extend({
 
 		routes: {
@@ -27,11 +30,11 @@
 			this.showPage('div#main-page');
 		},
 
-		user: function(uname) {
+		user: function() {
 			this.showPage('div#user-page');
 		},
 
-		group: function(group) {
+		group: function() {
 			this.showPage('div#group-page');
 		},
 
@@ -47,4 +50,5 @@
 			this.showPage('div#search-page');
 		}
 	});
+//});
 // })();

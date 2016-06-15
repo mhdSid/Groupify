@@ -1,4 +1,7 @@
 // ((): void => {
+// require([
+//     'backbone'
+// ], function(Backbone) {
 	let UpdateSection: any = Backbone.Model.extend({
 
 		defaults: {
@@ -64,7 +67,7 @@
 			} catch (e) { }
 		},
 
-	    updateUserGroups: function(user, gname) {
+		updateUserGroups: function(user, gname) {
 			try {
 				var userWithNewGroup = {
 					"type": "user",
@@ -90,7 +93,7 @@
 				localStorage.setItem(userWithNewGroup.name, JSON.stringify(userWithNewGroup));
 
 			} catch (e) { }
-	    },
+		},
 
 		updateGroupUsers: function(group, uname) {
 			try {
@@ -114,7 +117,7 @@
 
 			} catch (e) { }
 
-	    },
+		},
 
 		removeUserFromGroup: function(group, uname) {
 			try {
@@ -139,7 +142,7 @@
 
 			} catch (e) { }
 
-	    },
+		},
 
 		removeGroupFromUser: function(user, gname) {
 			try {
@@ -168,6 +171,7 @@
 				localStorage.setItem(userWithNewGroup.name, JSON.stringify(userWithNewGroup));
 
 			} catch (e) { }
-	    }
+		}
 	});
+//});
 // })();

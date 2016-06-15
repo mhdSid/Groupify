@@ -1,20 +1,36 @@
 /****** Navbar *****/
+
 .sidebar {
-    z-index: 51;
-    height: 100vh;
+    //z-index: 51;
+    display: none; 
     background-color: @red;
-    opacity: 0.9;
+    
     //text-align: center;
     color: white;
     margin: 0;
-    position: relative;
+    
     overflow: hidden;
 
     width: 250px;
 
+    opacity: 1;
+    position: absolute;
+    z-index: 99999999999;
+    height: 100vh;
+    button {
+      background-color: @text-white;
+      width: 30px;  
+      height: 30px;
+      border: none;
+      position: absolute;
+      right: 10px;
+      top: 5px;
+      color: @red;
+    }
     .groupify {
    		margin: 25px 0 40px 0;
-    	padding: 8px 25px;
+      padding: 0px 25px;
+    	
     	height: 33px;
 
     	&:hover {
@@ -54,6 +70,7 @@
 
    		.group-list, .user-list {
    			overflow: scroll;
+
    	    	margin: 10px 0 0 0;
 
    	    	a {
@@ -126,7 +143,7 @@
 
 nav {
 	padding: 22px;
-	width: ~'calc(100% - 250px)';
+	width: 100%;
     height: 80px;
     background-color: @text-white;
     position: fixed;
@@ -134,9 +151,16 @@ nav {
     z-index: 99;
     text-align: center;
 
+     button {
+        display: initial;
+        width: 30px; height: 30px; border: none; background-color: #fd583f; vertical-align: middle;
+        margin-right: 20px;
+      }
+
     div {
     	height: 35px;
-    	width: 50%;
+    	
+      width: 70%;
     	display: inline-block;
     	border: 1px solid #d2d2d2;
     	border-radius: 15px; 
@@ -149,11 +173,12 @@ nav {
             height: 24px;
             background: url("../images/search.png") no-repeat;
         }
-
+     
     	input {
     		height: 100%;
     		border: none;
-    		width: 80%;
+    		
+         width: 70%;
     		color: #163c80;
 
     		&:focus {
@@ -171,4 +196,43 @@ nav {
   flex-wrap: nowrap;
   min-height: 100vh;
   justify-content: space-between;
+}
+
+@media only screen and (min-width: 769px) {
+  .sidebar {
+    //opacity: 0.9;
+    position: relative;
+
+    .groupify{
+      padding: 8px 25px;
+    }
+
+    button {
+      display: none;
+    }
+    
+  }
+  nav {
+        button {
+          display: none;
+        }
+        width: ~'calc(100% - 250px)';
+        div {
+              width: 50%;
+              button {
+                display: none;
+              }
+              input {
+                   width: 80%;
+              }
+        }
+  }
+  }
+
+.hide {
+  /* this is just another form of hiding an element */
+  display: block!important;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }

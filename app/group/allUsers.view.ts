@@ -1,4 +1,9 @@
 // ((): void => {
+// require([
+// 	'backbone',
+//     'jquery',
+//     'underscore'
+// ], function(Backbone, $, _) {
 	let AllUsersView: any = Backbone.View.extend({
 		el: $('#all-users-template'),
 
@@ -67,4 +72,5 @@
 			} catch (e) { }
 		}
 	});
+//});
 // })();

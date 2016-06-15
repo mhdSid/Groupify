@@ -1,4 +1,9 @@
 // ((): void => {
+// require([
+//     'backbone',
+//     'jquery',
+//     'underscore'
+// ], function(Backbone, $, _) {
 	let AllGroupsView: any = Backbone.View.extend({
 		el: $('#all-groups-template'),
 
@@ -68,4 +73,5 @@
 			} catch (e) { }
 		}
 	});
+//});
 // })();

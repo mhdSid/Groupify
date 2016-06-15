@@ -1,6 +1,13 @@
 // ((): void => {
+// require([
+//     'backbone',
+//     'jquery',
+//     '/development/user/user.viewModel.js',
+//     '/development/user/userGroups.view.js',
+//     '/development/user/userListingGroupChoices.view.js'
+// ], function(Backbone, $, UserViewModel, UserGroupsListing, GroupChoices) {
 	let oldChoicess: any;
-	let oldGroupss: any; 
+	let oldGroupss: any;
 	let UserView: any = Backbone.View.extend({
 		el: $('#user-page'),
 
@@ -73,4 +80,5 @@
 			Backbone.history.navigate("/adduser", true);
 		}
 	});
+//});
 // })();

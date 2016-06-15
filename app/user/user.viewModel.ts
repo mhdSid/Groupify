@@ -1,4 +1,7 @@
 // ((): void => {
+// require([
+//     'backbone'
+// ], function(Backbone) {
 	let UserViewModel: any = Backbone.Model.extend({
 
 		defaults: {
@@ -34,4 +37,5 @@
 			} catch (e) { }
 		}
 	});
+//});
 // })();

@@ -1,4 +1,11 @@
 // ((): void => {
+// require([
+// 	'backbone',
+//     'jquery',
+//     '/development/group/group.viewModel.js',
+//     '/development/group/groupMembers.view.js',
+//     '/development/group/groupListingUsersChoices.view.js'
+// ], function(Backbone, $, GroupViewModel, GroupMembersListing, UserChoices) {
 	let oldChoices: any;
 	let oldUsers: any;
 
@@ -73,4 +80,5 @@
 			Backbone.history.navigate("/addgroup", true);
 		}
 	});
+//});
 // })();

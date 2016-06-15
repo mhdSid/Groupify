@@ -1,4 +1,7 @@
 // ((): void => {
+// require([
+// 	'backbone'
+// ], function(Backbone) {
 	let Group: any = Backbone.Model.extend({
 
 		defaults: {
@@ -88,4 +91,5 @@
 			} catch (e) { }
 		}
 	});
+//});
 // })();

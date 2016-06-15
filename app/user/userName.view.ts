@@ -1,4 +1,8 @@
 // ((): void => {
+// require([
+//     'backbone',
+//     'jquery'
+// ], function(Backbone, $) {
 	let UserNameView: any = Backbone.View.extend({
 
 		el: $('input[name="user-name"]'),
@@ -16,4 +20,5 @@
 		}
 
 	});
+//});
 // })();

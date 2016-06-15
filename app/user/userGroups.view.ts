@@ -1,4 +1,10 @@
 // ((): void => {
+// require([
+//     'backbone',
+//     'jquery',
+//     '/development/user/user.viewModel.js',
+//     'underscore'
+// ], function(Backbone, $, UserViewModel, _) {
 	let UserGroupsListing: any = Backbone.View.extend({
 
 		el: $('#user-belongs-list'),
@@ -32,4 +38,5 @@
 			$(this.el).append(this.el);
 		}
 	});
+//});
 // })();

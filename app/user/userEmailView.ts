@@ -1,4 +1,8 @@
 // ((): void => {
+// require([
+//     'backbone',
+//     'jquery',
+// ], function(Backbone, $) {
 	let UserEmailView: any = Backbone.View.extend({
 
 		el: $('input[name="user-email"]'),
@@ -12,7 +16,8 @@
 
 			$(this.el).val('');
 
-	        return this;
+			return this;
 		}
 	});
+//});
 // })();
