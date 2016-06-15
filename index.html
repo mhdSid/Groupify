@@ -25,8 +25,8 @@
     <div class="big-boy row col-xs-12">
 
         <!-- Sidebar -->
-        <div class="sidebar rapper">   <!--col-xs-3 col-lg-2-->
-
+        <div class="sidebar rapper" tabindex="-1">   <!--col-xs-3 col-lg-2-->
+            <button class="hide-sidebar-btn">X</button>
             <div class="part groupify">
                 <a class="nav-app">Dashboard</a>
             </div>
@@ -80,6 +80,7 @@
         <!-- End Sidebar -->
         
         <nav class="nav-search">
+            <button></button>
             <div>
                 <input type="text" name="user-search" placeholder="Search">
             </div>
@@ -123,7 +124,7 @@
                             <% _.each(groups, function(group) { %> 
                                 <% if (group !== null) { %>
                                     <div class="user-belongs-listing row middle-xs">
-                                        <span class="col-xs-3">Belongs to</span>
+                                        <span class="col-xs-5">Belongs to</span>
                                         <span class="col-xs-7 user-belongs-listing-name"><%= group %></span>
                                         <span class="nt-belong">X</span>
                                     </div>
@@ -147,7 +148,7 @@
                         <div class="search-list-items">
                             <% _.each(data, function(data) { %> 
                                 <div class="search-list-items-listing row middle-xs">
-                                    <span class="col-xs-3"><%= data.type %></span>
+                                    <span class="col-xs-5"><%= data.type %></span>
                                     <span class="col-xs-7"><%= data.name %></span>
                                 </div>
                             <% }); %>
@@ -277,6 +278,7 @@
     
     <!-- build:js /app/build.js-->
     <!-- inject:js -->
+    <script src="/development/require.js"></script>
     <script src="/development/app.routes.js"></script>
     <script src="/development/app.view.js"></script>
     <script src="/development/updateSection.model.js"></script>
