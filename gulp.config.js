@@ -27,7 +27,7 @@
             imgagesPath: GlobalConfig.appPath + "_public/images/*.*",
 
             tsPath: GlobalConfig.appPath + "**/*.ts",
-            jsPath: [GlobalConfig.env + "/*.module.js", GlobalConfig.env + "/app.*.js", GlobalConfig.env + "/**/*.js"],
+            jsPath: [GlobalConfig.env + "/require.js", GlobalConfig.env + "/*.module.js", GlobalConfig.env + "/app.*.js", GlobalConfig.env + "/**/*.js"],
 
             index: "index.html",
 
